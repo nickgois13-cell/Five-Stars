@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <base target="_self">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Five Stars</title>
+  <meta name="description" content="Trufas e brownies artesanais feitos com ingredientes selecionados. Sabores exclusivos para todos os gostos.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Dancing+Script:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#8B4513",
+                        secondary: "#D2691E",
+                        accent: "#F4A460",
+                        light: "#FFF8DC",
+                        dark: "#5D4037"
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'script': ['Dancing Script', 'cursive']
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+  <style>
+.hero-bg {
+    background: linear-gradient(rgba(139, 69, 19, 0.85), rgba(139, 69, 19, 0.9)), url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c');
+    background-size: cover;
+    background-position: center;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.flavor-badge {
+    transition: all 0.3s ease;
+}
+
+.flavor-badge:hover {
+    transform: scale(1.05);
+}
+
+.product-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+</style>
+ </head>
+ <body class="min-h-screen bg-light font-sans text-dark">
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+   <nav class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+     <div class="flex items-center">
+      <i class="fas fa-cookie-bite text-3xl text-primary mr-3"></i>
+      <h1 class="text-2xl font-bold text-primary font-script">Five Stars</h1>
+     </div>
+     <ul id="nav-list" class="hidden md:flex space-x-8"></ul>
+     <button id="mobile-menu-btn" class="md:hidden text-primary text-2xl"><i class="fas fa-bars"></i></button>
+    </div>
+    <div id="mobile-menu" class="md:hidden mt-4 hidden">
+     <ul id="mobile-nav-list" class="space-y-4"></ul>
+    </div>
+   </nav>
+  </header>
+  <main>
+   <!-- Hero Section -->
+   <section id="home" class="hero-bg text-white py-16 md:py-24">
+    <div class="container mx-auto px-4 text-center">
+     <h2 class="text-4xl md:text-6xl font-bold mb-6 font-script">Delícias Artesanais</h2>
+     <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Trufas e brownies feitos com amor e ingredientes selecionados. Perfeitos para presentear ou para seu momento de prazer.</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#trufas" class="bg-accent hover:bg-secondary text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300">Ver Trufas</a> <a href="#brownies" class="bg-white hover:bg-gray-100 text-primary font-semibold py-3 px-8 rounded-full text-lg transition duration-300">Ver Brownies</a>
+     </div>
+    </div>
+   </section>
+   <!-- Trufas Section -->
+   <section id="trufas" class="py-16 md:py-20">
+    <div class="container mx-auto px-4">
+     <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nossas Trufas</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Trufas artesanais com recheios cremosos e coberturas deliciosas. Cada uma é uma experiência única de sabor.</p>
+     </div>
+     <div id="trufas-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+   </section>
+   <!-- Sabores de Trufas -->
+   <section class="bg-white py-16">
+    <div class="container mx-auto px-4">
+     <div class="text-center mb-12">
+      <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4">Sabores Disponíveis</h3>
+      <p class="text-lg text-gray-600">Escolha entre nossa variedade de sabores exclusivos</p>
+     </div>
+     <div id="trufas-flavors" class="flex flex-wrap justify-center gap-4"></div>
+    </div>
+   </section>
+   <!-- Brownies Section -->
+   <section id="brownies" class="bg-light py-16 md:py-20">
+    <div class="container mx-auto px-4">
+     <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nossos Brownies</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Brownies densos, úmidos e extremamente saborosos. A combinação perfeita de textura e chocolate.</p>
+     </div>
+     <div id="brownies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+   </section>
+   <!-- Sabores de Brownies -->
+   <section class="py-16">
+    <div class="container mx-auto px-4">
+     <div class="text-center mb-12">
+      <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4">Variedades de Brownies</h3>
+      <p class="text-lg text-gray-600">Diferentes opções para todos os paladares</p>
+     </div>
+     <div id="brownies-flavors" class="flex flex-wrap justify-center gap-4"></div>
+    </div>
+   </section>
+   <!-- Informações de Produto -->
+   <section class="bg-primary text-white py-16">
+    <div class="container mx-auto px-4">
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center">
+       <i class="fas fa-seedling text-4xl mb-4 text-accent"></i>
+       <h3 class="text-xl font-bold mb-3">Ingredientes Selecionados</h3>
+       <p class="text-gray-200">Utilizamos apenas ingredientes de alta qualidade, com chocolate premium e produtos frescos.</p>
+      </div>
+      <div class="text-center">
+       <i class="fas fa-heart text-4xl mb-4 text-accent"></i>
+       <h3 class="text-xl font-bold mb-3">Feito com Amor</h3>
+       <p class="text-gray-200">Cada produto é preparado artesanalmente, com atenção aos detalhes e muito carinho.</p>
+      </div>
+      <div class="text-center">
+       <i class="fas fa-shipping-fast text-4xl mb-4 text-accent"></i>
+       <h3 class="text-xl font-bold mb-3">Entrega Rápida</h3>
+       <p class="text-gray-200">Entregamos em toda a região, mantendo a qualidade e frescor dos produtos.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- FAQ Section -->
+   <section class="py-16">
+    <div class="container mx-auto px-4">
+     <h2 class="text-3xl font-bold text-primary text-center mb-12">Perguntas Frequentes</h2>
+     <div id="faq-list" class="max-w-3xl mx-auto space-y-6"></div>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-dark text-white pt-12 pb-8">
+   <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+     <div>
+      <div class="flex items-center mb-4">
+       <i class="fas fa-cookie-bite text-2xl text-accent mr-3"></i>
+       <h3 class="text-xl font-bold font-script">Five Stars</h3>
+      </div>
+      <p class="text-gray-300">Especialistas em trufas e brownies artesanais. Delícias feitas para momentos especiais.</p>
+     </div>
+     <div>
+      <h4 class="text-lg font-bold mb-4">Produtos</h4>
+      <ul id="footer-products" class="space-y-2"></ul>
+     </div>
+     <div>
+      <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
+      <ul id="footer-links" class="space-y-2"></ul>
+     </div>
+     <div>
+      <h4 class="text-lg font-bold mb-4">Contato</h4>
+      <div class="space-y-3">
+       <div class="flex items-center">
+        <i class="fas fa-envelope text-accent mr-3"></i> <span>nick.gois13@gmail.com</span>
+       </div>
+       <div class="flex items-center">
+        <i class="fas fa-phone text-accent mr-3"></i> <span>(14) 99123-5508</span>
+       </div>
+       <div class="flex items-center">
+        <i class="fas fa-map-marker-alt text-accent mr-3"></i> <span>Agudos, SP</span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+     <p>© 2026 Five Stars. Todos os direitos reservados.</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Data Layer - All content data
+        const navigationItems = [
+            { "label": "Início", "href": "#home" },
+            { "label": "Trufas", "href": "#trufas" },
+            { "label": "Brownies", "href": "#brownies" },
+            { "label": "Sabores", "href": "#trufas-flavors" },
+            { "label": "FAQ", "href": "#faq-list" }
+        ];
+
+const trufasProducts = [
+  {
+"id": 1,
+"name": "Trufa Tradicional",
+"description": "Trufa artesanal clássica com recheio cremoso de chocolate e cobertura de chocolate.",
+"image": "https://i.postimg.cc/3JJgBPqv/Trufa-Tradicional.jpg",
+"alt": "Trufa tradicional",
+"features": ["Chocolate intenso","Receita artesanal","Cobertura de chocolate"]
+},
+{
+"id": 2,
+"name": "Trufa de Leite Ninho com Nutella",
+"description": "Trufa de chocolate com recheio cremoso de leite ninho e Nutella.",
+"image": "https://i.postimg.cc/SsBp2YDz/Trufa-Ninho-Nutella.jpg",
+"alt": "Trufa Nutella",
+"features": ["Recheio de Nutella","Chocolate ao leite","Leite Ninho"]
+},
+{
+"id": 3,
+"name": "Trufa de Leite Ninho",
+"description": "Trufa cremosa feita com leite ninho e chocolate branco.",
+"image": "https://i.postimg.cc/yYYFPwGF/Trufa-Leite-Ninho.jpg",
+"alt": "Trufa Leite Ninho",
+"features": ["Leite Ninho","Recheio cremoso","Muito macia"]
+  }
+];
+
+const browniesProducts = [
+{ 
+"id": 4,
+"name": "Brownie Tradicional",
+"description": "Brownie clássico de chocolate com textura úmida e macia (sem nozes).",
+"image": "https://i.postimg.cc/bNNQTK5k/Brownie-Tradicional.webp",
+"alt": "Brownie tradicional de chocolate",
+"features": ["Chocolate intenso","Textura macia","Receita clássica"]
+},
+{ 
+"id": 5,
+"name": "Brownie com Brigadeiro",
+"description": "Brownie de chocolate coberto com brigadeiro cremoso.",
+"image": "https://i.postimg.cc/8PPhHqYf/Brownie-Brigadeiro.jpg",
+"alt": "Brownie com brigadeiro",
+"features": ["Cobertura de brigadeiro","Chocolate premium","Muito cremoso"]
+}
+];
+
+        const trufasFlavors = [
+            { "name": "Tradicional", "color": "bg-amber-700", "icon": "fas fa-cookie" },
+            { "name": "Leite Ninho com Nuttela", "color": "bg-amber-900", "icon": "fas fa-candy-cane" },
+            { "name": "Leite Ninho", "color": "bg-yellow-300", "textColor": "text-gray-800", "icon": "fas fa-cookie-bite" }
+        ];
+
+        const browniesFlavors = [
+            { "name": "Tradicional", "color": "bg-amber-700", "icon": "fas fa-cookie" },
+            { "name": "Brigadeiro", "color": "bg-amber-900", "icon": "fas fa-cookie-bite" }
+        ];
+
+        const faqItems = [
+            { 
+                "question": "Como faço para encomendar?", 
+                "answer": "Entre em contato pelo telefone ou e-mail informados no site. Atendemos encomendas com 48h de antecedência." 
+            },
+            { 
+                "question": "Quais são as opções de entrega?", 
+                "answer": "Oferecemos entrega apenas na própria na região ainda." 
+            },
+            { 
+                "question": "Os produtos contêm glúten?", 
+                "answer": "Alguns produtos podem conter glúten. Consulte-nos sobre opções sem glúten disponíveis." 
+            },
+            { 
+                "question": "Qual o prazo de validade?", 
+                "answer": "Nossos produtos têm validade de 5 dias quando conservados em local fresco e arejado. Recomendamos consumo imediato para melhor experiência." 
+            },
+            { 
+                "question": "Fazem encomendas para eventos?", 
+                "answer": "Sim! Atendemos encomendas para festas, eventos corporativos e datas especiais. Entre em contato com antecedência para combinar detalhes." 
+            }
+        ];
+
+        const footerProducts = [
+            { "label": "Trufas Tradicionais", "href": "#trufas" },
+            { "label": "Trufas Especiais", "href": "#trufas" },
+            { "label": "Brownies Clássicos", "href": "#brownies" },
+            { "label": "Brownies Premium", "href": "#brownies" }
+        ];
+
+        const footerLinks = [
+            { "label": "Início", "href": "#home" },
+            { "label": "Produtos", "href": "#trufas" },
+            { "label": "Sabores", "href": "#trufas-flavors" },
+            { "label": "FAQ", "href": "#faq-list" }
+        ];
+
+        // Reusable Render Functions
+        function renderNavItems(items) {
+            return items.map(item => 
+                "<li><a href=\"" + item.href + "\" class=\"text-gray-700 hover:text-primary font-medium transition duration-300\">" + 
+                item.label + "</a></li>"
+            ).join("");
+        }
+
+        function renderProductCard(product, type) {
+            const featuresHtml = product.features.map(feature => 
+                "<li class=\"flex items-center\"><i class=\"fas fa-check text-green-500 mr-2\"></i>" + feature + "</li>"
+            ).join("");
+            
+            return `
+            <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden transition duration-300">
+                <div class="relative overflow-hidden">
+                    <img src="${product.image}" alt="${product.alt}" class="w-full h-64 object-cover" loading="lazy">
+                    <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        ${type === 'trufa' ? 'Trufa' : 'Brownie'}
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-primary mb-3">${product.name}</h3>
+                    <p class="text-gray-600 mb-4">${product.description}</p>
+                    <ul class="space-y-2 mb-6">${featuresHtml}</ul>
+                    <button class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-4 rounded-lg transition duration-300">
+                        <i class="fas fa-shopping-cart mr-2"></i>Encomendar Agora
+                    </button>
+                </div>
+            </div>`;
+        }
+
+        function renderFlavorBadge(flavor) {
+            const textColor = flavor.textColor || "text-white";
+            return `
+            <div class="flavor-badge ${flavor.color} ${textColor} px-6 py-3 rounded-full flex items-center shadow-md cursor-pointer">
+                <i class="${flavor.icon} mr-3"></i>
+                <span class="font-medium">${flavor.name}</span>
+            </div>`;
+        }
+
+        function renderFAQItem(item, index) {
+            return `
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 font-semibold text-lg flex justify-between items-center">
+                    <span>${item.question}</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer hidden p-6 bg-white">
+                    <p class="text-gray-600">${item.answer}</p>
+                </div>
+            </div>`;
+        }
+
+        function renderFooterList(items) {
+            return items.map(item => 
+                "<li><a href=\"" + item.href + "\" class=\"text-gray-300 hover:text-accent transition duration-300\">" + 
+                item.label + "</a></li>"
+            ).join("");
+        }
+
+        // DOM Initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation
+            document.getElementById('nav-list').innerHTML = renderNavItems(navigationItems);
+            document.getElementById('mobile-nav-list').innerHTML = renderNavItems(navigationItems);
+            
+            // Products
+            document.getElementById('trufas-grid').innerHTML = trufasProducts.map(
+                product => renderProductCard(product, 'trufa')
+            ).join("");
+            
+            document.getElementById('brownies-grid').innerHTML = browniesProducts.map(
+                product => renderProductCard(product, 'brownie')
+            ).join("");
+            
+            // Flavors
+            document.getElementById('trufas-flavors').innerHTML = trufasFlavors.map(
+                flavor => renderFlavorBadge(flavor)
+            ).join("");
+            
+            document.getElementById('brownies-flavors').innerHTML = browniesFlavors.map(
+                flavor => renderFlavorBadge(flavor)
+            ).join("");
+            
+            // FAQ
+            document.getElementById('faq-list').innerHTML = faqItems.map(
+                (item, index) => renderFAQItem(item, index)
+            ).join("");
+            
+            // Footer
+            document.getElementById('footer-products').innerHTML = renderFooterList(footerProducts);
+            document.getElementById('footer-links').innerHTML = renderFooterList(footerLinks);
+            
+            // Mobile Menu Toggle
+            document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
+            });
+            
+            // FAQ Accordion
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    answer.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.addEventListener('click', function(event) {
+                const link = event.target.closest('a[href^="#"]');
+                if (!link) return;
+                
+                const targetId = link.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    event.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+           
+// ✅ BOTÕES WHATSAPP - CORRIGIDO
+document.querySelectorAll('.product-card button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const productName = this.closest('.product-card').querySelector('h3').textContent;
+        const phoneNumber = '5514991235508'; // SEU NÚMERO CORRETO
+        const message = `Olá! Quero encomendar: *${productName}*`;
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    });
+});
+
+    // Flavor badges
+    document.querySelectorAll('.flavor-badge').forEach(badge => {
+        badge.addEventListener('click', function() {
+            // remove seleção de outros
+            badge.parentElement.querySelectorAll('.flavor-badge').forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected'); // marca o selecionado
+        });
+    });
+});
+    </script>
+ </body>
+</html>
