@@ -182,7 +182,7 @@
         <i class="fas fa-envelope text-accent mr-3"></i> <span>nick.gois13@gmail.com</span>
        </div>
        <div class="flex items-center">
-        <i class="fas fa-phone text-accent mr-3"></i> <span>(14) 99123-5508</span>
+        <i class="fas fa-phone text-accent mr-3"></i> <span>(14) 99144-7877</span>
        </div>
        <div class="flex items-center">
         <i class="fas fa-map-marker-alt text-accent mr-3"></i> <span>Agudos, SP</span>
@@ -436,7 +436,7 @@ document.querySelectorAll('.product-card button').forEach(button => {
     button.addEventListener('click', function(e) {
         e.preventDefault();
         const productName = this.closest('.product-card').querySelector('h3').textContent;
-        const phoneNumber = '5514991235508'; // SEU NÚMERO CORRETO
+        const phoneNumber = '5514991447877'; // NÚMERO CORRETO
         const message = `Olá! Quero encomendar: *${productName}*`;
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
     });
