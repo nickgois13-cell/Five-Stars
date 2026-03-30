@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
  <head>
-  <base target="_self">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Five Stars</title>
@@ -36,6 +35,16 @@
     background: linear-gradient(rgba(139, 69, 19, 0.85), rgba(139, 69, 19, 0.9)), url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c');
     background-size: cover;
     background-position: center;
+}
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.scroll-animate.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .product-card:hover {
@@ -80,79 +89,79 @@
    <!-- Hero Section -->
    <section id="home" class="hero-bg text-white py-16 md:py-24">
     <div class="container mx-auto px-4 text-center">
-     <h2 class="text-4xl md:text-6xl font-bold mb-6 font-script">Trufas e Brownies</h2>
-     <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Trufas e brownies feitos com amor e ingredientes selecionados. Perfeitos para presentear ou para seu momento de prazer.</p>
-     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#trufas" class="bg-accent hover:bg-secondary text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300">Ver Trufas</a> <a href="#brownies" class="bg-white hover:bg-gray-100 text-primary font-semibold py-3 px-8 rounded-full text-lg transition duration-300">Ver Brownies</a>
+     <h2 class="text-4xl md:text-6xl font-bold mb-6 font-script scroll-animate">Trufas e Brownies</h2>
+     <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto scroll-animate">Trufas e brownies feitos com amor e ingredientes selecionados. Perfeitos para presentear ou para seu momento de prazer.</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center scroll-animate">
+      <a href="#trufas" class="bg-accent hover:bg-secondary text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 scroll-animate">Ver Trufas</a> <a href="#brownies" class="bg-white hover:bg-gray-100 text-primary font-semibold py-3 px-8 rounded-full text-lg transition duration-300 scroll-animate">Ver Brownies</a>
      </div>
     </div>
    </section>
    <!-- Trufas Section -->
    <section id="trufas" class="py-16 md:py-20">
-    <div class="container mx-auto px-4">
-     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nossas Trufas</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Trufas artesanais com recheios cremosos e coberturas deliciosas. Cada uma é uma experiência única de sabor.</p>
+    <div class="container mx-auto px-4 scroll-animate">
+     <div class="text-center mb-12 scroll-animate">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 scroll-animate">Nossas Trufas</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto scroll-animate">Trufas artesanais com recheios cremosos e coberturas deliciosas. Cada uma é uma experiência única de sabor.</p>
      </div>
      <div id="trufas-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </div>
    </section>
    <!-- Sabores de Trufas -->
-   <section class="bg-white py-16">
-    <div class="container mx-auto px-4">
-     <div class="text-center mb-12">
-      <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4">Sabores Disponíveis</h3>
-      <p class="text-lg text-gray-600">Escolha entre nossa variedade de sabores exclusivos</p>
+   <section class="bg-white py-16 scroll-animate">
+    <div class="container mx-auto px-4 scroll-animate">
+     <div class="text-center mb-12 scroll-animate">
+      <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4 scroll-animate">Sabores Disponíveis</h3>
+      <p class="text-lg text-gray-600 scroll-animate">Escolha entre nossa variedade de sabores exclusivos</p>
      </div>
      <div id="trufas-flavors" class="flex flex-wrap justify-center gap-4"></div>
     </div>
    </section>
    <!-- Brownies Section -->
    <section id="brownies" class="bg-light py-16 md:py-20">
-    <div class="container mx-auto px-4">
-     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nossos Brownies</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Brownies densos, úmidos e extremamente saborosos. A combinação perfeita de textura e chocolate.</p>
+    <div class="container mx-auto px-4 scroll-animate">
+     <div class="text-center mb-12 scroll-animate">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 scroll-animate">Nossos Brownies</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto scroll-animate">Brownies densos, úmidos e extremamente saborosos. A combinação perfeita de textura e chocolate.</p>
      </div>
      <div id="brownies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </div>
    </section>
    <!-- Sabores de Brownies -->
-   <section class="py-16">
-    <div class="container mx-auto px-4">
-     <div class="text-center mb-12">
-      <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4">Variedades de Brownies</h3>
-      <p class="text-lg text-gray-600">Diferentes opções para todos os paladares</p>
+   <section class="py-16 scroll-animate">
+    <div class="container mx-auto px-4 scroll-animate">
+     <div class="text-center mb-12 scroll-animate">
+      <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4 scroll-animate">Variedades de Brownies</h3>
+      <p class="text-lg text-gray-600 scroll-animate">Diferentes opções para todos os paladares</p>
      </div>
      <div id="brownies-flavors" class="flex flex-wrap justify-center gap-4"></div>
     </div>
    </section>
    <!-- Informações de Produto -->
-   <section class="bg-primary text-white py-16">
-    <div class="container mx-auto px-4">
+   <section class="bg-primary text-white py-16 scroll-animate">
+    <div class="container mx-auto px-4 scroll-animate">
      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="text-center">
-       <i class="fas fa-seedling text-4xl mb-4 text-accent"></i>
-       <h3 class="text-xl font-bold mb-3">Ingredientes Selecionados</h3>
-       <p class="text-gray-200">Utilizamos apenas ingredientes de alta qualidade, com chocolate premium e produtos frescos.</p>
+      <div class="text-center scroll-animate">
+       <i class="fas fa-seedling text-4xl mb-4 text-accent scroll-animate"></i>
+       <h3 class="text-xl font-bold mb-3 scroll-animate">Ingredientes Selecionados</h3>
+       <p class="text-gray-200 scroll-animate">Utilizamos apenas ingredientes de alta qualidade, com chocolate premium e produtos frescos.</p>
       </div>
-      <div class="text-center">
-       <i class="fas fa-heart text-4xl mb-4 text-accent"></i>
-       <h3 class="text-xl font-bold mb-3">Feito com Amor</h3>
-       <p class="text-gray-200">Cada produto é preparado artesanalmente, com atenção aos detalhes e muito carinho.</p>
+      <div class="text-center scroll-animate">
+       <i class="fas fa-heart text-4xl mb-4 text-accent scroll-animate"></i>
+       <h3 class="text-xl font-bold mb-3 scroll-animate">Feito com Amor</h3>
+       <p class="text-gray-200 scroll-animate">Cada produto é preparado artesanalmente, com atenção aos detalhes e muito carinho.</p>
       </div>
-      <div class="text-center">
-       <i class="fas fa-shipping-fast text-4xl mb-4 text-accent"></i>
-       <h3 class="text-xl font-bold mb-3">Entrega Rápida</h3>
-       <p class="text-gray-200">Entregamos em toda a região, mantendo a qualidade e frescor dos produtos.</p>
+      <div class="text-center scroll-animate">
+       <i class="fas fa-shipping-fast text-4xl mb-4 text-accent scroll-animate"></i>
+       <h3 class="text-xl font-bold mb-3 scroll-animate scroll-animate">Entrega Rápida</h3>
+       <p class="text-gray-200 scroll-animate">Entregamos em toda a região, mantendo a qualidade e frescor dos produtos.</p>
       </div>
      </div>
     </div>
    </section>
    <!-- FAQ Section -->
-   <section class="py-16">
-    <div class="container mx-auto px-4">
-     <h2 class="text-3xl font-bold text-primary text-center mb-12">Perguntas Frequentes</h2>
+   <section id="faq" class="py-16 scroll-animate">
+    <div class="container mx-auto px-4 scroll-animate">
+     <h2 class="text-3xl font-bold text-primary text-center mb-12 scroll-animate">Perguntas Frequentes</h2>
      <div id="faq-list" class="max-w-3xl mx-auto space-y-6"></div>
     </div>
    </section>
@@ -236,7 +245,7 @@ const browniesProducts = [
 { 
 "id": 4,
 "name": "Brownie Tradicional",
-"description": "Brownie clássico de chocolate com textura úmida e macia (sem nozes).",
+"description": "Brownie clássico de chocolate com textura úmida e macia.",
 "image": "https://i.postimg.cc/bNNQTK5k/Brownie-Tradicional.webp",
 "alt": "Brownie tradicional de chocolate",
 "features": ["Chocolate intenso","Textura macia","Receita clássica"]
@@ -295,8 +304,8 @@ const browniesProducts = [
         const footerLinks = [
             { "label": "Início", "href": "#home" },
             { "label": "Produtos", "href": "#trufas" },
-            { "label": "Sabores", "href": "#trufas-flavors" },
-            { "label": "FAQ", "href": "#faq-list" }
+            { "label": "Sabores", "href": "#sabores" },
+            { "label": "FAQ", "href": "#faq" }
         ];
 
         // Reusable Render Functions
@@ -385,7 +394,7 @@ const browniesProducts = [
             ).join("");
             
             // FAQ
-            document.getElementById('faq-list').innerHTML = faqItems.map(
+            document.getElementById('faq').innerHTML = faqItems.map(
                 (item, index) => renderFAQItem(item, index)
             ).join("");
             
@@ -412,24 +421,24 @@ const browniesProducts = [
             
             // Smooth scrolling for anchor links
             document.addEventListener('click', function(event) {
-                const link = event.target.closest('a[href^="#"]');
-                if (!link) return;
-                
-                const targetId = link.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    event.preventDefault();
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                }
-            });
+    const link = event.target.closest('a');
+
+    if (!link || !link.getAttribute('href')?.startsWith('#')) return;
+
+    const targetId = link.getAttribute('href');
+    if (targetId === '#') return;
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+        event.preventDefault();
+        window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+        });
+
+        document.getElementById('mobile-menu').classList.add('hidden');
+    }
+});
            
 // ✅ BOTÕES WHATSAPP - CORRIGIDO
 document.querySelectorAll('.product-card button').forEach(button => {
@@ -440,6 +449,20 @@ document.querySelectorAll('.product-card button').forEach(button => {
         const message = `Olá! Quero encomendar: *${productName}*`;
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
     });
+});
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+document.querySelectorAll('.scroll-animate').forEach(el => {
+    observer.observe(el);
 });
 
     // Flavor badges
@@ -453,4 +476,4 @@ document.querySelectorAll('.product-card button').forEach(button => {
 });
     </script>
  </body>
-</html>
+ </html>
