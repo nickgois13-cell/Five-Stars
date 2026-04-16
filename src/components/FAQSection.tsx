@@ -50,11 +50,11 @@ const FAQSection = () => {
   value={`item-${i}`}
   className="rounded-2xl overflow-hidden border border-white/10"
 >
-  <AccordionTrigger className="bg-chocolate-gradient font-heading font-semibold text-white text-left hover:no-underline hover:text-white transition-colors py-5 px-6">
+  <AccordionTrigger className="bg-[#5d4037] font-heading font-semibold text-white text-left hover:no-underline hover:text-white transition-colors py-5 px-6">
     {faq.q}
   </AccordionTrigger>
 
-  <AccordionContent className="bg-chocolate-gradient font-body text-white/90 leading-relaxed pb-5 px-6">
+  <AccordionContent className="bg-[#5d4037] font-body text-white/90 leading-relaxed pb-5 px-6">
     {faq.a}
   </AccordionContent>
 </AccordionItem>
