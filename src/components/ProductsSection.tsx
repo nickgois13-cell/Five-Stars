@@ -42,7 +42,7 @@ const products = [
     id: "ninho-nutella",
     name: "Brownie Ninho c/ Nutella",
     price: 5.5,
-    description: "O encontro perfeito: creme de ninho, Nutella e brownie de chocolate belga.",
+    description: "O encontro perfeito: creme de ninho, Nutella e brownie de chocolate.",
     image: brownieNinhoNutella,
     category: "brownies" as const,
   },
