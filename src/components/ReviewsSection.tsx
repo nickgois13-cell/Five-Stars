@@ -38,9 +38,9 @@ const ReviewsSection = () => {
           {reviews.map((r, i) => (
             <div
               key={i}
-              className="bg-card p-6 rounded-2xl border border-border/50 hover-lift group relative"
+              className="bg-cream/10 p-6 rounded-2xl border border-gold/20 hover-lift group relative"
             >
-              <Quote className="w-8 h-8 text-gold/20 absolute top-4 right-4 group-hover:text-gold/40 transition-colors duration-500" />
+              <Quote className="w-8 h-8 text-gold/35 absolute top-4 right-4 group-hover:text-gold/60 transition-colors duration-500" />
               <div className="flex mb-3">
                 {Array.from({ length: 5 }).map((_, s) => (
                   <Star
