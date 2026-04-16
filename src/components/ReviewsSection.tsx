@@ -16,7 +16,7 @@ const ReviewsSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="avaliacoes" className="py-24">
+    <section id="avaliacoes" className="py-24 bg-[#f5e6d3]">
       <div ref={ref} className="container mx-auto px-4 section-reveal">
         <div className="text-center mb-16">
           <p className="font-cursive text-gold text-2xl mb-2">Avaliações</p>
@@ -38,7 +38,7 @@ const ReviewsSection = () => {
           {reviews.map((r, i) => (
             <div
               key={i}
-              className="bg-[#f6eddc]/90 p-6 rounded-2xl border border-[#e9d9c0]/80 hover-lift group relative"
+              className="bg-white p-6 rounded-2xl border border-[#e9d9c0]/80 hover-lift group relative"
             >
               <Quote className="w-8 h-8 text-[#6d4c41] absolute top-4 right-4 group-hover:text-[#6d4c41] transition-colors duration-500" />
               <div className="flex mb-3">
