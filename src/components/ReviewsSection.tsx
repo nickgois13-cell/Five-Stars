@@ -39,25 +39,25 @@ const ReviewsSection = () => {
             <div
               key={i}
               className="bg-cream/10 p-6 rounded-2xl border border-gold/20 hover-lift group relative"
-            >
-              <Quote className="w-8 h-8 text-gold/35 absolute top-4 right-4 group-hover:text-gold/60 transition-colors duration-500" />
-              <div className="flex mb-3">
-                {Array.from({ length: 5 }).map((_, s) => (
-                  <Star
-                    key={s}
-                    className={`w-4 h-4 ${s < r.rating ? "text-gold fill-gold" : "text-border"}`}
-                  />
-                ))}
-              </div>
-              <p className="font-body text-sm text-foreground leading-relaxed mb-4">
-                "{r.text}"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-xs font-bold text-primary">{r.name.charAt(0)}</span>
-                </div>
-                <p className="font-body text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  {r.name}
+>
+  <Quote className="w-8 h-8 text-gold/30 absolute top-4 right-4 group-hover:text-gold/50 transition-colors duration-500" />
+  <div className="flex mb-3">
+    {Array.from({ length: 5 }).map((_, s) => (
+      <Star
+        key={s}
+        className={`w-4 h-4 ${s < r.rating ? "text-gold fill-gold" : "text-cream/25"}`}
+      />
+    ))}
+  </div>
+  <p className="font-body text-sm text-cream/85 leading-relaxed mb-4">
+    "{r.text}"
+  </p>
+  <div className="flex items-center gap-3">
+    <div className="w-8 h-8 rounded-full bg-gold/15 flex items-center justify-center">
+      <span className="text-xs font-bold text-gold">{r.name.charAt(0)}</span>
+    </div>
+    <p className="font-body text-xs font-semibold text-cream/70 uppercase tracking-wider">
+      {r.name}
                 </p>
               </div>
             </div>
