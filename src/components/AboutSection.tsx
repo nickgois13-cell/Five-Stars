@@ -8,8 +8,8 @@ const AboutSection = () => {
     <section id="sobre" className="py-24 bg-[#5d4037]">
       <div ref={ref} className="container mx-auto px-4 section-reveal">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="font-cursive text-[#f3e7d3] text-2xl mb-2">Nossa História</p>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-gold mb-8">
+          <p className="font-cursive text-gold text-2xl mb-2">Nossa História</p>
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-8">
             Sobre a Five Stars
           </h2>
           
@@ -25,7 +25,7 @@ const AboutSection = () => {
             testada dezenas de vezes até atingir o equilíbrio ideal entre textura, sabor e qualidade.
           </p>
           <p className="font-body text-lg text-white/80 leading-relaxed mb-8">
-            Utilizamos apenas ingredientes premium — chocolate belga, manteiga de primeira e 
+            Utilizamos apenas ingredientes premium — chocolate, manteiga de primeira e 
             cacau de origem controlada. Nosso compromisso é entregar não apenas um doce, 
             mas uma experiência cinco estrelas em cada mordida.
           </p>
