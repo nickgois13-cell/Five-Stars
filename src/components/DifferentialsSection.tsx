@@ -5,7 +5,7 @@ const items = [
   {
     icon: Leaf,
     title: "Ingredientes Selecionados",
-    description: "Chocolate belga, manteiga de qualidade e ingredientes premium em cada receita.",
+    description: "Chocolate premium, manteiga de qualidade e ingredientes premium em cada receita.",
   },
   {
     icon: ChefHat,
@@ -45,7 +45,7 @@ const DifferentialsSection = () => {
           {items.map((item, i) => (
             <div
               key={item.title}
-              className="text-center p-8 rounded-2xl border border-cream/10 bg-cream/5 backdrop-blur-sm hover:bg-cream/10 hover:border-gold/20 transition-all duration-500 group"
+              className="text-center p-8 rounded-2xl border border-gold/20 bg-cream/10 text-cream shadow-lg backdrop-blur-sm hover:bg-cream/15 hover:border-gold/40 transition-all duration-500 group"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:bg-gold/20 transition-all duration-500">
