@@ -9,7 +9,7 @@ const AboutSection = () => {
       <div ref={ref} className="container mx-auto px-4 section-reveal">
         <div className="max-w-3xl mx-auto text-center">
           <p className="font-cursive text-[#f3e7d3] text-2xl mb-2">Nossa História</p>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-8">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-gold mb-8">
             Sobre a Five Stars
           </h2>
           
