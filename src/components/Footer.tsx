@@ -66,7 +66,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-cream/40 hover:text-gold transition-colors duration-300"
             >
-              <Instagram className="w-5 h-5" />
+              
             </a>
             <a
              
