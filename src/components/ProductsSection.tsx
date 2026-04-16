@@ -19,7 +19,7 @@ const products = [
     name: "Brownie Clássico",
     price: 3.5,
     description: "Chocolate intenso com textura perfeita — crocante por fora, molhadinho por dentro.",
-    image: brownieClassico,
+    image: "https://i.postimg.cc/bNNQTK5k/Brownie-Tradicional.webp",
     category: "brownies" as const,
   },
   {
@@ -27,7 +27,7 @@ const products = [
     name: "Brownie de Brigadeiro",
     price: 4.0,
     description: "A combinação perfeita do brownie com o sabor irresistível do brigadeiro brasileiro.",
-    image: brownieBrigadeiro,
+    image: "https://i.postimg.cc/8PPhHqYf/Brownie-Brigadeiro.jpg",
     category: "brownies" as const,
   },
   {
@@ -51,7 +51,7 @@ const products = [
     name: "Trufa Simples",
     price: 3.5,
     description: "Trufa clássica de chocolate — cremosa, intensa e irresistível.",
-    image: trufaSimples,
+    image: "https://i.postimg.cc/3JJgBPqv/Trufa-Tradicional.jpg",
     category: "trufas" as const,
   },
   {
@@ -59,7 +59,7 @@ const products = [
     name: "Trufa de Ninho",
     price: 4.5,
     description: "Trufa coberta com leite ninho — doçura cremosa que derrete na boca.",
-    image: trufaNinho,
+    image: "https://i.postimg.cc/yYYFPwGF/Trufa-Leite-Ninho.jpg",
     category: "trufas" as const,
   },
   {
@@ -67,7 +67,7 @@ const products = [
     name: "Trufa Ninho c/ Nutella",
     price: 5.5,
     description: "Trufa com recheio de Nutella e cobertura de ninho — combinação premium.",
-    image: trufaNinhoNutella,
+    image: "https://i.postimg.cc/SsBp2YDz/Trufa-Ninho-Nutella.jpg",
     category: "trufas" as const,
   },
 ];
