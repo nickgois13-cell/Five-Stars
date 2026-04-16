@@ -4,7 +4,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const reviews = [
   { name: "Andreia Zanetti.", rating: 5, text: "Melhor brownie que já comi na vida! Textura perfeita e sabor incrível." },
   { name: "Celso Gois.", rating: 5, text: "O de ninho com Nutella é simplesmente divino. Já pedi 3 vezes!" },
-  { name: "Felipe Demétrio.", rating: 5, text: "Presenteei minha mãe e ela amou. Qualidade premium de verdade!" },
+  { name: "Felipe Demétrio.", rating: 5, text: "Presentei minha mãe e ela amou. Qualidade premium de verdade!" },
   { name: "Ricardo Menghi.", rating: 5, text: "Viciante demais! Impossível comer só um. Entrega super rápida." },
   { name: "Franklin Matheus.", rating: 5, text: "As trufas são sensacionais! Derretem na boca. Super recomendo." },
   { name: "Felipe Oliveira.", rating: 4, text: "Brownie clássico sensacional. Embalagem linda, perfeito pra presente." },
@@ -38,7 +38,7 @@ const ReviewsSection = () => {
           {reviews.map((r, i) => (
             <div
               key={i}
-              className="bg-[#ddcdb2]/90 p-6 rounded-2xl border border-[#c4ab86]/40 hover-lift group relative"
+              className="bg-[#ddcdb2]/60 p-6 rounded-2xl border border-[#c4ab86]/40 hover-lift group relative"
             >
               <Quote className="w-8 h-8 text-gold/35 absolute top-4 right-4 group-hover:text-gold/60 transition-colors duration-500" />
               <div className="flex mb-3">
