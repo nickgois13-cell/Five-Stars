@@ -5,7 +5,7 @@ const AboutSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="sobre" className="py-24 bg-[#5d4037]">
+    <section id="sobre" className="py-24 bg-chocolate">
       <div ref={ref} className="container mx-auto px-4 section-reveal">
         <div className="max-w-3xl mx-auto text-center">
           <p className="font-cursive text-gold text-2xl mb-2">Nossa História</p>
