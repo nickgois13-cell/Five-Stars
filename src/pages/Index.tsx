@@ -24,13 +24,13 @@ const Index = () => {
       <SectionDivider from="#f5e6d3" to="#3e2723" />
       <DifferentialsSection />
       {/* Diferenciais (#3e2723) → Avaliações (#f9f5e6) */}
-      <SectionDivider from="#3e2723" to="#f9f5e6" />
+      <SectionDivider from="#3e2723" to="#f5e6d3" />
       <ReviewsSection />
       {/* Avaliações (#f9f5e6) → Sobre (#5d4037) */}
-      <SectionDivider from="#f9f5e6" to="#5d4037" />
+      <SectionDivider from="#f5e6d3" to="#3e2723" />
       <AboutSection />
       {/* Sobre (#5d4037) → FAQ (#f5e6d3) */}
-      <SectionDivider from="#5d4037" to="#f5e6d3" />
+      <SectionDivider from="#3e2723" to="#f5e6d3" />
       <FAQSection />
       {/* FAQ (#f5e6d3) → Footer (dark) */}
       <SectionDivider from="#f5e6d3" to="#3e2723" />
