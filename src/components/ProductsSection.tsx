@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react"; // Adicionado useEffect
-import { useSearchParams } from "react-router-dom"; // Adicionado useSearchParams
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Plus, Check } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import type { CartItem } from "@/hooks/useCart";
 
+// Seus imports de imagens locais
 import brownieNinho from "@/assets/brownie-ninho.jpg";
 import brownieNinhoNutella from "@/assets/brownie-ninho-nutella.jpg";
 
@@ -80,20 +81,25 @@ interface ProductsSectionProps {
 
 const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
   const sectionRef = useScrollReveal();
-  const [searchParams] = useSearchParams(); // Hook para ler a URL
+  const [searchParams] = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<Category>("todos");
   const [addedIds, setAddedIds] = useState<Set<string>>(new Set());
 
-  // Lógica para detectar a categoria pela URL (ex: ?categoria=brownies)
   useEffect(() => {
     const categoryFromUrl = searchParams.get("categoria") as Category;
+    
     if (categoryFromUrl && ["todos", "brownies", "trufas"].includes(categoryFromUrl)) {
       setActiveCategory(categoryFromUrl);
       
-      // Pequeno ajuste para rolar até o cardápio se houver categoria na URL
-      const element = document.getElementById("cardapio");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      // Só faz scroll se o usuário clicou em um link que contém o hash #cardapio
+      // Isso evita o scroll automático ao apenas atualizar a página no topo
+      if (window.location.hash === "#cardapio") {
+        const element = document.getElementById("cardapio");
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        }
       }
     }
   }, [searchParams]);
@@ -103,7 +109,13 @@ const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
     : products.filter((p) => p.category === activeCategory);
 
   const handleAdd = (product: typeof products[0]) => {
-    onAddToCart({ id: product.id, name: product.name, price: product.price, image: product.image });
+    onAddToCart({ 
+      id: product.id, 
+      name: product.name, 
+      price: product.price, 
+      image: product.image 
+    });
+    
     setAddedIds((prev) => new Set(prev).add(product.id));
     setTimeout(() => setAddedIds((prev) => {
       const next = new Set(prev);
@@ -152,6 +164,7 @@ const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-chocolate-dark/0 group-hover:bg-chocolate-dark/20 transition-colors duration-500" />
                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-chocolate-dark/80 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400">
                   <button
                     onClick={() => handleAdd(product)}
