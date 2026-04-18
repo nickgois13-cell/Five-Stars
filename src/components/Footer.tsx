@@ -23,13 +23,13 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 font-body text-sm text-cream/60">
               <li>
-  <a href="/#cardapio?categoria=brownies" className="hover:text-gold transition-colors">
+  <a href="/?categoria=brownies#cardapio" className="hover:text-gold transition-colors">
     Brownies
   </a>
 </li>
 
 <li>
-  <a href="/#cardapio?categoria=trufas" className="hover:text-gold transition-colors">
+  <a href="/?categoria=trufas#cardapio" className="hover:text-gold transition-colors">
     Trufas
   </a>
 </li>
