@@ -1,15 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Adicionado useEffect
+import { useSearchParams } from "react-router-dom"; // Adicionado useSearchParams
 import { Plus, Check } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import type { CartItem } from "@/hooks/useCart";
 
-import brownieClassico from "@/assets/brownie-classico.jpg";
-import brownieBrigadeiro from "@/assets/brownie-brigadeiro.jpg";
 import brownieNinho from "@/assets/brownie-ninho.jpg";
 import brownieNinhoNutella from "@/assets/brownie-ninho-nutella.jpg";
-import trufaSimples from "@/assets/trufa-simples.jpg";
-import trufaNinho from "@/assets/trufa-ninho.jpg";
-import trufaNinhoNutella from "@/assets/trufa-ninho-nutella.jpg";
 
 type Category = "todos" | "brownies" | "trufas";
 
@@ -84,10 +80,27 @@ interface ProductsSectionProps {
 
 const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
   const sectionRef = useScrollReveal();
+  const [searchParams] = useSearchParams(); // Hook para ler a URL
   const [activeCategory, setActiveCategory] = useState<Category>("todos");
   const [addedIds, setAddedIds] = useState<Set<string>>(new Set());
 
-  const filtered = activeCategory === "todos" ? products : products.filter((p) => p.category === activeCategory);
+  // Lógica para detectar a categoria pela URL (ex: ?categoria=brownies)
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get("categoria") as Category;
+    if (categoryFromUrl && ["todos", "brownies", "trufas"].includes(categoryFromUrl)) {
+      setActiveCategory(categoryFromUrl);
+      
+      // Pequeno ajuste para rolar até o cardápio se houver categoria na URL
+      const element = document.getElementById("cardapio");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [searchParams]);
+
+  const filtered = activeCategory === "todos" 
+    ? products 
+    : products.filter((p) => p.category === activeCategory);
 
   const handleAdd = (product: typeof products[0]) => {
     onAddToCart({ id: product.id, name: product.name, price: product.price, image: product.image });
@@ -108,7 +121,6 @@ const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
             Escolha o seu favorito
           </h2>
 
-          {/* Category tabs */}
           <div className="flex justify-center gap-2">
             {categories.map((cat) => (
               <button
@@ -138,12 +150,8 @@ const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
                   src={product.image}
                   alt={product.name}
                   loading="lazy"
-                  width={800}
-                  height={800}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-chocolate-dark/0 group-hover:bg-chocolate-dark/20 transition-colors duration-500" />
-                {/* Quick add overlay */}
                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-chocolate-dark/80 to-transparent opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400">
                   <button
                     onClick={() => handleAdd(product)}
