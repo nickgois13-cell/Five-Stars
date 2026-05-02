@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Plus, Check } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import type { CartItem } from "@/hooks/useCart";
 
@@ -114,13 +113,15 @@ const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
   const handleCategoryChange = (category: Category) => {
     setActiveCategory(category);
 
+    const params = new URLSearchParams(searchParams);
+
     if (category === "todos") {
-      searchParams.delete("categoria");
-      setSearchParams(searchParams, { replace: true });
-      return;
+      params.delete("categoria");
+    } else {
+      params.set("categoria", category);
     }
 
-    setSearchParams({ categoria: category }, { replace: true });
+    setSearchParams(params, { replace: true });
   };
 
   const handleAdd = (product: Product) => {
@@ -160,16 +161,17 @@ const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
               const isActive = activeCategory === category.key;
 
               return (
-             <button
-  onClick={() => handleAdd(product)}
-  className={`px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
-    added
-      ? "bg-green-600 text-white"
-      : "bg-primary text-primary-foreground hover:shadow-lg"
-  }`}
->
-  {added ? "Adicionado" : "Quero esse"}
-</button>
+                <button
+                  key={category.key}
+                  onClick={() => handleCategoryChange(category.key)}
+                  className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                    isActive
+                      ? "bg-primary text-primary-foreground shadow-lg"
+                      : "bg-secondary text-muted-foreground hover:bg-secondary/80"
+                  }`}
+                >
+                  {category.label}
+                </button>
               );
             })}
           </div>
@@ -203,16 +205,15 @@ const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
 
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-chocolate-dark/80 to-transparent opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     <button
-  onClick={() => handleAdd(product)}
-  aria-label={`Adicionar ${product.name} ao carrinho`}
-  className={`px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
-    added
-      ? "bg-green-600 text-primary-foreground"
-      : "bg-primary text-primary-foreground hover:shadow-lg hover:scale-[1.02]"
-  }`}
->
-  {added ? "Adicionado" : "Quero esse"}
-</button>
+                      onClick={() => handleAdd(product)}
+                      className={`w-full py-2.5 rounded-full font-semibold text-sm transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                        added
+                          ? "bg-green-600 text-white"
+                          : "bg-primary text-primary-foreground hover:bg-primary/90"
+                      }`}
+                    >
+                      {added ? "Adicionado" : "Quero esse"}
+                    </button>
                   </div>
                 </div>
 
@@ -225,21 +226,20 @@ const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
                     {product.description}
                   </p>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-3">
                     <span className="font-heading text-2xl font-bold text-primary">
                       R${product.price.toFixed(2).replace(".", ",")}
                     </span>
 
                     <button
                       onClick={() => handleAdd(product)}
-                      aria-label={`Adicionar ${product.name} ao carrinho`}
-                      className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                      className={`px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                         added
-                          ? "bg-green-600 text-primary-foreground"
-                          : "bg-primary text-primary-foreground hover:shadow-lg"
+                          ? "bg-green-600 text-white"
+                          : "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg"
                       }`}
                     >
-                      {added ? <Check className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                      {added ? "Adicionado" : "Quero esse"}
                     </button>
                   </div>
                 </div>
