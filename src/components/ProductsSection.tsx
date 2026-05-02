@@ -207,7 +207,7 @@ const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
                       onClick={() => handleAdd(product)}
                       className="w-full py-2.5 rounded-full bg-gold text-chocolate-dark font-semibold text-sm transition-all hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                     >
-                      Adicionar ao carrinho
+                      {added ? "Adicionado" : "Quero esse"}
                     </button>
                   </div>
                 </div>
