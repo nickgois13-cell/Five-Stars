@@ -204,11 +204,16 @@ const ProductsSection = ({ onAddToCart }: ProductsSectionProps) => {
 
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-chocolate-dark/80 to-transparent opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     <button
-                      onClick={() => handleAdd(product)}
-                      className="w-full py-2.5 rounded-full bg-gold text-chocolate-dark font-semibold text-sm transition-all hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-                    >
-                      {added ? "Adicionado" : "Quero esse"}
-                    </button>
+  onClick={() => handleAdd(product)}
+  aria-label={`Adicionar ${product.name} ao carrinho`}
+  className={`px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+    added
+      ? "bg-green-600 text-primary-foreground"
+      : "bg-primary text-primary-foreground hover:shadow-lg hover:scale-[1.02]"
+  }`}
+>
+  {added ? "Adicionado" : "Quero esse"}
+</button>
                   </div>
                 </div>
 
