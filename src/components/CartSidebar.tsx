@@ -10,10 +10,37 @@ interface CartSidebarProps {
   onRemove: (id: string) => void;
 }
 
-const CartSidebar = ({ isOpen, onClose, items, total, onUpdateQuantity, onRemove }: CartSidebarProps) => {
-  const whatsappMessage = items.length > 0
-    ? `Olá! Gostaria de fazer um pedido:%0A%0A${items.map((i) => `• ${i.quantity}x ${i.name} - R$${(i.price * i.quantity).toFixed(2).replace(".", ",")}`).join("%0A")}%0A%0ATotal: R$${total.toFixed(2).replace(".", ",")}` 
-    : "";
+const CartSidebar = ({
+  isOpen,
+  onClose,
+  items,
+  total,
+  onUpdateQuantity,
+  onRemove,
+}: CartSidebarProps) => {
+  const whatsappText =
+    items.length > 0
+      ? `Olá! Quero fazer um pedido da Five Stars 🍫
+
+${items
+  .map(
+    (i) =>
+      `• ${i.quantity}x ${i.name} - R$${(i.price * i.quantity)
+        .toFixed(2)
+        .replace(".", ",")}`,
+  )
+  .join("
+")}
+
+Total: R$${total.toFixed(2).replace(".", ",")}
+
+🔥 Pode me confirmar disponibilidade?`
+      : "";
+
+  const whatsappHref =
+    items.length > 0
+      ? `https://wa.me/5514991447877?text=${encodeURIComponent(whatsappText)}`
+      : "#";
 
   return (
     <>
@@ -28,15 +55,22 @@ const CartSidebar = ({ isOpen, onClose, items, total, onUpdateQuantity, onRemove
         className={`fixed top-0 right-0 h-full w-full max-w-md bg-card z-50 shadow-2xl flex flex-col transition-transform duration-300 ease-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Seu carrinho"
       >
         <div className="flex items-center justify-between p-6 border-b border-border">
           <div className="flex items-center gap-3">
             <ShoppingBag className="w-5 h-5 text-foreground" />
-            <h2 className="font-heading text-xl font-bold text-foreground">Seu Carrinho</h2>
+            <h2 className="font-heading text-xl font-bold text-foreground">
+              Seu Carrinho
+            </h2>
           </div>
+
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full hover:bg-secondary flex items-center justify-center transition-colors"
+            aria-label="Fechar carrinho"
+            className="w-8 h-8 rounded-full hover:bg-secondary flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
           >
             <X className="w-4 h-4 text-foreground" />
           </button>
@@ -52,39 +86,50 @@ const CartSidebar = ({ isOpen, onClose, items, total, onUpdateQuantity, onRemove
             items.map((item) => (
               <div
                 key={item.id}
-                className="flex gap-4 p-3 rounded-xl bg-secondary/50 animate-scale-in"
+                className="flex gap-4 p-3 rounded-xl bg-secondary/50 animate-scale-in hover:shadow-md transition"
               >
                 <img
                   src={item.image}
                   alt={item.name}
                   className="w-16 h-16 rounded-lg object-cover"
                 />
+
                 <div className="flex-1 min-w-0">
                   <h4 className="font-body font-semibold text-sm text-foreground truncate">
                     {item.name}
                   </h4>
+
                   <p className="text-primary font-heading font-bold text-sm">
                     R${item.price.toFixed(2).replace(".", ",")}
                   </p>
+
                   <div className="flex items-center gap-2 mt-1">
                     <button
                       onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
-                      className="w-6 h-6 rounded-full bg-muted flex items-center justify-center hover:bg-border transition-colors"
+                      className="w-6 h-6 rounded-full bg-muted flex items-center justify-center hover:bg-border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                      aria-label={`Diminuir quantidade de ${item.name}`}
                     >
                       <Minus className="w-3 h-3" />
                     </button>
-                    <span className="text-sm font-semibold w-6 text-center">{item.quantity}</span>
+
+                    <span className="text-sm font-semibold w-6 text-center">
+                      {item.quantity}
+                    </span>
+
                     <button
                       onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-                      className="w-6 h-6 rounded-full bg-muted flex items-center justify-center hover:bg-border transition-colors"
+                      className="w-6 h-6 rounded-full bg-muted flex items-center justify-center hover:bg-border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                      aria-label={`Aumentar quantidade de ${item.name}`}
                     >
                       <Plus className="w-3 h-3" />
                     </button>
                   </div>
                 </div>
+
                 <button
                   onClick={() => onRemove(item.id)}
-                  className="self-start text-muted-foreground hover:text-destructive transition-colors"
+                  aria-label={`Remover ${item.name}`}
+                  className="self-start text-muted-foreground hover:text-destructive transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-full"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -97,24 +142,28 @@ const CartSidebar = ({ isOpen, onClose, items, total, onUpdateQuantity, onRemove
           <div className="p-6 border-t border-border space-y-3">
             <div className="flex justify-between items-center">
               <span className="font-body text-muted-foreground">Total</span>
-              <span className="font-heading text-2xl font-bold text-foreground">
+
+              <span className="font-heading text-3xl font-bold text-primary">
                 R${total.toFixed(2).replace(".", ",")}
               </span>
             </div>
+
             <a
-              href={`https://wa.me/5514991447877?text=${whatsappMessage}`}
+              href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full btn-primary-custom justify-center gap-2"
+              className="w-full btn-primary-custom justify-center gap-2 shadow-lg hover:scale-[1.02] transition-all duration-200"
             >
               <MessageCircle className="w-4 h-4" />
               Finalizar via WhatsApp
             </a>
-            <button className="w-full btn-outline-custom justify-center text-xs">
-              Pagar com Pix / Cartão
-            </button>
+
             <p className="text-center text-xs text-muted-foreground font-body">
-              Aceitamos Pix, cartão de crédito e débito
+              Pagamento via Pix ou dinheiro na entrega
+            </p>
+
+            <p className="text-center text-xs text-orange-500 font-semibold font-body">
+              ⚠️ Produção limitada — pedidos encerram rápido
             </p>
           </div>
         )}
