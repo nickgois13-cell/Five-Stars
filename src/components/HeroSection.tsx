@@ -45,8 +45,8 @@ const HeroSection = () => {
           }}
         />
 
-        <div className={`absolute inset-0 bg-black/70 ${fadeBase} ${visible ? "opacity-100" : "opacity-0"}`} />
-        <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60 ${fadeBase} ${visible ? "opacity-100" : "opacity-0"}`} />
+        <div className="absolute inset-0 bg-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/80" />
 
         <div
           className={`absolute pointer-events-none ${fadeBase} ${visible ? "opacity-100" : "opacity-0"}`}

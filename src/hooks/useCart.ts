@@ -22,7 +22,6 @@ export function useCart() {
       }
       return [...prev, { ...product, quantity: 1 }];
     });
-    setIsOpen(true);
   }, []);
 
   const removeItem = useCallback((id: string) => {
