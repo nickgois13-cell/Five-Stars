@@ -46,13 +46,13 @@ Total: R$${total.toFixed(2).replace(".", ",")}
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-foreground/30 backdrop-blur-sm z-40"
+          className="fixed inset-0 bg-foreground/30 backdrop-blur-sm z-40 pointer-events-auto"
           onClick={onClose}
         />
       )}
 
       <aside
-        className={`fixed top-0 right-0 h-full w-full max-w-md bg-card z-50 shadow-2xl flex flex-col transition-transform duration-300 ease-out ${
+        className={`fixed top-0 right-0 h-full w-full max-w-md bg-card z-50 shadow-2xl flex flex-col transition-transform duration-300 ease-out pointer-events-auto ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
@@ -142,7 +142,6 @@ Total: R$${total.toFixed(2).replace(".", ",")}
           <div className="p-6 border-t border-border space-y-3">
             <div className="flex justify-between items-center">
               <span className="font-body text-muted-foreground">Total</span>
-
               <span className="font-heading text-3xl font-bold text-primary">
                 R${total.toFixed(2).replace(".", ",")}
               </span>
@@ -152,7 +151,7 @@ Total: R$${total.toFixed(2).replace(".", ",")}
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#20bd5a] active:translate-y-0 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
+              className="w-full pointer-events-auto flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#20bd5a] active:translate-y-0 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
             >
               <MessageCircle className="w-4 h-4" />
               Finalizar via WhatsApp
