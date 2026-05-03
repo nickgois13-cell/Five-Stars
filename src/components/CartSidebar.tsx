@@ -134,10 +134,10 @@ const CartSidebar = ({
         </div>
 
         {items.length > 0 && (
-          <div className="p-6 border-t border-border shrink-0 space-y-3">
+          <div className="p-6 border-t border-border shrink-0 space-y-3" style={{ backgroundColor: "#f5e6d3" }}>
             <div className="flex justify-between items-center">
-              <span className="font-body text-muted-foreground">Total</span>
-              <span className="font-heading text-3xl font-bold text-primary">
+              <span className="font-body" style={{ color: "#5d4037" }}>Total</span>
+              <span className="font-heading text-3xl font-bold" style={{ color: "#3e2723" }}>
                 R${total.toFixed(2).replace(".", ",")}
               </span>
             </div>
@@ -146,15 +146,12 @@ const CartSidebar = ({
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#20bd5a] active:translate-y-0 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
+              className="w-full flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+              style={{ background: "linear-gradient(135deg, #3e2723 0%, #5d4037 100%)", color: "#fff8f0", borderColor: "#d4a373" }}
             >
               <MessageCircle className="w-4 h-4" />
               Finalizar via WhatsApp
             </a>
-
-            <p className="text-center text-xs text-orange-500 font-semibold font-body">
-              ⚠️ Produção limitada — pedidos encerram rápido
-            </p>
           </div>
         )}
       </aside>

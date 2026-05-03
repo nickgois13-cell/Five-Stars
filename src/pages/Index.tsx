@@ -39,7 +39,7 @@ const Index = () => {
         onRemove={removeItem}
       />
 
-      {count > 0 && (
+      {count > 0 && !isOpen && (
         <button
           type="button"
           onClick={() => setIsOpen(true)}
