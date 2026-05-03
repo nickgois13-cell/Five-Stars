@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Quais formas de pagamento vocês aceitam?",
-    a: "Aceitamos Pix, cartão de crédito e débito. O pagamento é feito na entrega ou via transferência.",
+    a: "O pagamento é feito na entrega ou via WhatsApp.",
   },
   {
     q: "Vocês fazem entregas?",
