@@ -23,13 +23,11 @@ const CartSidebar = ({
       ? `Olá! Quero fazer um pedido da Five Stars 🍫
 
 ${items
-  .map(
-    (i) =>
-      `• ${i.quantity}x ${i.name} - R$${(i.price * i.quantity)
-        .toFixed(2)
-        .replace(".", ",")}`,
-  )
-  .join("
+          .map(
+            (i) =>
+              `• ${i.quantity}x ${i.name} - R$${(i.price * i.quantity).toFixed(2).replace(".", ",")}`,
+          )
+          .join("
 ")}
 
 Total: R$${total.toFixed(2).replace(".", ",")}
@@ -46,13 +44,13 @@ Total: R$${total.toFixed(2).replace(".", ",")}
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm pointer-events-auto"
+          className="fixed inset-0 z-[50] bg-black/40 backdrop-blur-sm"
           onClick={onClose}
         />
       )}
 
       <aside
-        className={`fixed top-0 right-0 z-50 h-screen w-full max-w-md bg-card shadow-2xl flex flex-col transform transition-transform duration-300 ease-out pointer-events-auto ${
+        className={`fixed top-0 right-0 z-[60] h-screen w-full max-w-md bg-card shadow-2xl flex flex-col transition-transform duration-300 ease-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
@@ -68,9 +66,10 @@ Total: R$${total.toFixed(2).replace(".", ",")}
           </div>
 
           <button
+            type="button"
             onClick={onClose}
+            className="w-8 h-8 rounded-full hover:bg-secondary flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             aria-label="Fechar carrinho"
-            className="relative z-50 w-8 h-8 rounded-full hover:bg-secondary flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
           >
             <X className="w-4 h-4 text-foreground" />
           </button>
@@ -105,6 +104,7 @@ Total: R$${total.toFixed(2).replace(".", ",")}
 
                   <div className="flex items-center gap-2 mt-1">
                     <button
+                      type="button"
                       onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
                       className="w-6 h-6 rounded-full bg-muted flex items-center justify-center hover:bg-border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                       aria-label={`Diminuir quantidade de ${item.name}`}
@@ -117,6 +117,7 @@ Total: R$${total.toFixed(2).replace(".", ",")}
                     </span>
 
                     <button
+                      type="button"
                       onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
                       className="w-6 h-6 rounded-full bg-muted flex items-center justify-center hover:bg-border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                       aria-label={`Aumentar quantidade de ${item.name}`}
@@ -127,9 +128,10 @@ Total: R$${total.toFixed(2).replace(".", ",")}
                 </div>
 
                 <button
+                  type="button"
                   onClick={() => onRemove(item.id)}
-                  aria-label={`Remover ${item.name}`}
                   className="self-start text-muted-foreground hover:text-destructive transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-full"
+                  aria-label={`Remover ${item.name}`}
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -151,7 +153,7 @@ Total: R$${total.toFixed(2).replace(".", ",")}
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full pointer-events-auto flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#20bd5a] active:translate-y-0 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
+              className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#20bd5a] active:translate-y-0 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
             >
               <MessageCircle className="w-4 h-4" />
               Finalizar via WhatsApp
