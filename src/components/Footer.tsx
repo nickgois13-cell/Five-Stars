@@ -1,6 +1,19 @@
 import { Instagram, Star, Mail, Phone, MapPin } from "lucide-react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const [, setSearchParams] = useSearchParams();
+
+  const goToCategory = (e: React.MouseEvent, categoria: "brownies" | "trufas") => {
+    e.preventDefault();
+    setSearchParams({ categoria }, { replace: false });
+    navigate(`/?categoria=${categoria}#cardapio`, { replace: false });
+    requestAnimationFrame(() => {
+      document.getElementById("cardapio")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
+
   return (
     <footer className="bg-[#2a1a17] py-16">
       <div className="container mx-auto px-4">
@@ -23,12 +36,12 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 font-body text-sm text-cream/60">
               <li>
-                <a href="/?categoria=brownies#cardapio" className="hover:text-gold transition-colors">
+                <a href="/?categoria=brownies#cardapio" onClick={(e) => goToCategory(e, "brownies")} className="hover:text-gold transition-colors">
                   Brownies
                 </a>
               </li>
               <li>
-                <a href="/?categoria=trufas#cardapio" className="hover:text-gold transition-colors">
+                <a href="/?categoria=trufas#cardapio" onClick={(e) => goToCategory(e, "trufas")} className="hover:text-gold transition-colors">
                   Trufas
                 </a>
               </li>
