@@ -46,20 +46,20 @@ Total: R$${total.toFixed(2).replace(".", ",")}
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-foreground/30 backdrop-blur-sm z-40 pointer-events-auto"
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm pointer-events-auto"
           onClick={onClose}
         />
       )}
 
       <aside
-        className={`fixed top-0 right-0 h-full w-full max-w-md bg-card z-50 shadow-2xl flex flex-col transition-transform duration-300 ease-out pointer-events-auto ${
+        className={`fixed top-0 right-0 z-50 h-screen w-full max-w-md bg-card shadow-2xl flex flex-col transform transition-transform duration-300 ease-out pointer-events-auto ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
         aria-modal="true"
         aria-label="Seu carrinho"
       >
-        <div className="flex items-center justify-between p-6 border-b border-border">
+        <div className="flex items-center justify-between p-6 border-b border-border shrink-0">
           <div className="flex items-center gap-3">
             <ShoppingBag className="w-5 h-5 text-foreground" />
             <h2 className="font-heading text-xl font-bold text-foreground">
@@ -70,7 +70,7 @@ Total: R$${total.toFixed(2).replace(".", ",")}
           <button
             onClick={onClose}
             aria-label="Fechar carrinho"
-            className="w-8 h-8 rounded-full hover:bg-secondary flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            className="relative z-50 w-8 h-8 rounded-full hover:bg-secondary flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
           >
             <X className="w-4 h-4 text-foreground" />
           </button>
@@ -86,7 +86,7 @@ Total: R$${total.toFixed(2).replace(".", ",")}
             items.map((item) => (
               <div
                 key={item.id}
-                className="flex gap-4 p-3 rounded-xl bg-secondary/50 animate-scale-in hover:shadow-md transition"
+                className="flex gap-4 p-3 rounded-xl bg-secondary/50 hover:shadow-md transition"
               >
                 <img
                   src={item.image}
@@ -139,7 +139,7 @@ Total: R$${total.toFixed(2).replace(".", ",")}
         </div>
 
         {items.length > 0 && (
-          <div className="p-6 border-t border-border space-y-3">
+          <div className="p-6 border-t border-border shrink-0 space-y-3">
             <div className="flex justify-between items-center">
               <span className="font-body text-muted-foreground">Total</span>
               <span className="font-heading text-3xl font-bold text-primary">
